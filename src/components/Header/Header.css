@@ -1,0 +1,14 @@
+.header {
+    background-color: var(--secondary-color);
+    padding: 4px;
+    padding-left: 12px;
+    font-size: 16pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.state_row {
+    display: flex;
+    flex-direction: row;
+}
