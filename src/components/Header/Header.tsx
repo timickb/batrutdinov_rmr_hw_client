@@ -3,20 +3,11 @@ import {Link} from "react-router-dom";
 import "@/components/Header/Header.css"
 import { AuthCtx, HeaderCtx } from "@/App";
 import { Button } from "@/uikit/Button/Button";
-import { logout, StatusResponse } from "@/infrastructure/http";
 
 
 export default function Header() {
     const { header } = useContext(HeaderCtx);
     const { isAuth, setAuth, username } = useContext(AuthCtx);
-
-    const handleLogout = async () => {
-        const response = await logout();
-        if ((response as StatusResponse).status != undefined) {
-            setAuth(false);
-            document.cookie = "auth-cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        }
-    }
 
     return (
         <div className="header">
