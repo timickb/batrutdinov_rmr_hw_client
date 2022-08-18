@@ -12,7 +12,7 @@ export type StatusResponse = {
     kind: "status"
     status: string
  }
-export interface KittyResponse { 
+export type KittyResponse = { 
     kind: "kitty"
     data: Kitty
  }
