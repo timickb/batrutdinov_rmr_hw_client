@@ -1,5 +1,5 @@
 import { AuthCtx, HeaderCtx } from "@/App";
-import { login } from "@/infrastructure/http";
+import { getProfile, login } from "@/infrastructure/http";
 import { Button } from "@/uikit/Button/Button";
 import { TextField } from "@/uikit/TextField/TextField";
 import { validate } from "@/utils/validation";
@@ -47,9 +47,12 @@ export default function Login() {
         console.log(res);
 
         if ('status' in res) {
-            authStore.setAuth(true);
-            authStore.setUsername(data.email);
-            setGlobalError("success");
+            getProfile().then(response => {
+                if ('data' in response) {
+                    authStore.setAuth(true);
+                    authStore.setProfile(response.data);
+                }
+            }).catch(err => console.log(err));
             return;
         }
 

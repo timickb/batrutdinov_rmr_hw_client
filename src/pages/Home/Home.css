@@ -1,0 +1,8 @@
+.profile {
+    border-radius: 16px;
+    background-color: var(--secondary-color);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

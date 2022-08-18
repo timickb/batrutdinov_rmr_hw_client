@@ -7,7 +7,7 @@ import { Button } from "@/uikit/Button/Button";
 
 export default function Header() {
     const { header } = useContext(HeaderCtx);
-    const { isAuth, setAuth, username } = useContext(AuthCtx);
+    const { isAuth, profile } = useContext(AuthCtx);
 
     return (
         <div className="header">
@@ -20,7 +20,7 @@ export default function Header() {
             </div>
 
             <div className="state_row">
-                <p style={{marginTop: 12}}>{isAuth ? username : ""}</p>
+                <p style={{marginTop: 12}}>{isAuth ? profile.name : ""}</p>
                 <div style={{marginRight: 5}} />
 
                 {isAuth ? <>

@@ -4,7 +4,7 @@ import { logout, StatusResponse } from "@/infrastructure/http";
 import React, { useContext, useEffect } from "react";
 
 export default function Logout() {
-    const { isAuth, setAuth, username } = useContext(AuthCtx);
+    const { setAuth } = useContext(AuthCtx);
     const navigate = useNavigate();
 
     useEffect(() => {
