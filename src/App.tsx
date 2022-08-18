@@ -6,6 +6,8 @@ import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import "@/normalize.css";
 import Kitty from "./pages/Kitty/Kitty";
+import { profile, ProfileResponse } from "./infrastructure/http";
+import Logout from "./pages/Logout/Logout";
 
 interface IHeaderContext {
     header: string
@@ -27,6 +29,15 @@ export default function App() {
     const [isAuth, setAuth] = useState(false);
     const [username, setUsername] = useState('');
 
+    useEffect(() => {
+        profile().then(response => {
+            if ((response as ProfileResponse).data != undefined) {
+                setAuth(true);
+                setUsername((response as ProfileResponse).data.name);
+            }
+        });
+    }, []);
+
     return (
         <AuthCtx.Provider value={{isAuth, username, setAuth, setUsername}}>
             <HeaderCtx.Provider value={{header, setHeader}}>
@@ -36,6 +47,7 @@ export default function App() {
                         <Route path="/" element={<Home />}/>
                         <Route path="/login" element={isAuth ? <Kitty /> : <Login />}/>
                         <Route path="/kitty" element={<Kitty />} />
+                        <Route path="/logout" element={<Logout />} />
                         <Route path="*" element={<h2>Page not found</h2>}/>
                     </Routes>
                 </div>
