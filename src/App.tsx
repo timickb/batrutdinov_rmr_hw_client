@@ -6,7 +6,7 @@ import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
 import "@/normalize.css";
 import Kitty from "./pages/Kitty/Kitty";
-import { profile, ProfileResponse } from "./infrastructure/http";
+import { getProfile, ProfileResponse } from "./infrastructure/http";
 import Logout from "./pages/Logout/Logout";
 
 interface IHeaderContext {
@@ -30,7 +30,7 @@ export default function App() {
     const [username, setUsername] = useState('');
 
     useEffect(() => {
-        profile().then(response => {
+        getProfile().then(response => {
             if ((response as ProfileResponse).data != undefined) {
                 setAuth(true);
                 setUsername((response as ProfileResponse).data.name);

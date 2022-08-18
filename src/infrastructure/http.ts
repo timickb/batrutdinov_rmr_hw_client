@@ -8,9 +8,18 @@ export interface ILoginRequest {
     phone: string
 }
 
-export type StatusResponse = { status: string }
-export type KittyResponse = { data: Kitty }
-export type ProfileResponse = { data: Profile }
+export type StatusResponse = { 
+    kind: "status"
+    status: string
+ }
+export interface KittyResponse { 
+    kind: "kitty"
+    data: Kitty
+ }
+export type ProfileResponse = { 
+    kind: "profile"
+    data: Profile
+ }
 
 
 export async function login(request: ILoginRequest): Promise<StatusResponse | ErrorResponse> {
@@ -25,16 +34,19 @@ export async function login(request: ILoginRequest): Promise<StatusResponse | Er
 }
 
 export async function logout(): Promise<StatusResponse | ErrorResponse> {
-    const response = await fetch('/api/v1/logout');
+    const response = await fetch('/api/v1/logout', {
+        method: 'POST',
+        cache: 'no-cache'
+    });
     return await response.json();
 }
 
-export async function kitty(): Promise<KittyResponse | ErrorResponse> {
+export async function getKitty(): Promise<KittyResponse | ErrorResponse> {
     const response = await fetch('/api/v1/kitty');
     return await response.json();
 }
 
-export async function profile(): Promise<ProfileResponse | ErrorResponse> {
+export async function getProfile(): Promise<ProfileResponse | ErrorResponse> {
     const response = await fetch('/api/v1/profile');
     return await response.json();
 }

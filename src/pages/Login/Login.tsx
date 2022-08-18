@@ -37,7 +37,7 @@ export default function Login() {
         setData({...data, [key]: value});
         setError({...error, [key]: value && !validate(key, value)});
     }
-    
+
     const handleLogin = async () => {
         if (!data.email || !data.password || !data.phone) {
             setGlobalError('There are empty fields');
@@ -46,7 +46,7 @@ export default function Login() {
         const res = await login(data);
         console.log(res);
 
-        if ((res as StatusResponse).status != undefined) {
+        if ('status' in res) {
             authStore.setAuth(true);
             authStore.setUsername(data.email);
             setGlobalError("success");

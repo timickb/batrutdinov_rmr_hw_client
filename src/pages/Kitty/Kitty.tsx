@@ -1,22 +1,22 @@
 import { HeaderCtx } from "@/App";
 import Loader from "@/components/Loader/Loader";
-import { kitty, KittyResponse } from "@/infrastructure/http";
+import { getKitty, KittyResponse } from "@/infrastructure/http";
 import React, { useEffect, useState, useContext } from "react";
 
 export default function Kitty() {
     const {setHeader} = useContext(HeaderCtx);
     useEffect(() => setHeader('Kitty'), []);
-    
+
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [path, setPath] = useState('');
 
     useEffect(() => {
         setLoading(true);
-        kitty().then(data => {
-            if ((data as KittyResponse).data != undefined) {
+        getKitty().then(resp => {
+            if ('data' in resp) {
                 setSuccess(true);
-                setPath((data as KittyResponse).data.src);
+                setPath(resp.data.src);
             }
         }).finally(() => setLoading(false));
     }, []);
