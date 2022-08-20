@@ -3,7 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "server": "node server/index.js",
     "dev": "webpack-dev-server",
     "build": "webpack --mode=production"
   },
