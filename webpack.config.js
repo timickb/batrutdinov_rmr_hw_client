@@ -9,6 +9,18 @@ module.exports = {
     mode: 'development',
     entry: './index.tsx',
 
+    devServer: {
+        historyApiFallback: true,
+        port: 9000,
+        open: true,
+        static: {
+            directory: path.join(__dirname, "/"),
+        },
+        proxy: {
+            "/api/v1": {target: API_URL, changeOrigin: true}
+        },
+    },
+
     output: {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, 'dist')
@@ -25,13 +37,6 @@ module.exports = {
         new HTMLWebpackPlugin({template: './index.html'}),
         new CleanWebpackPlugin(),
     ],
-
-    devServer: {
-        port: 9000,
-        proxy: {
-            "/api/v1": {target: API_URL, changeOrigin: true}
-        },
-    },
 
     module: {
         rules: [
