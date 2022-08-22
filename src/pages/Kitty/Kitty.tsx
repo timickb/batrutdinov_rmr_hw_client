@@ -22,12 +22,12 @@ export default function Kitty() {
     }, []);
 
     return (
-        <>
+        <div style={{borderRadius: 24, overflow: 'hidden'}}>
             {loading ? <Loader /> : (
                 success 
                 ? <img src={path} width={400} height={400} />
                 : <h3>Forbidden</h3>
             )}
-        </>
+        </div>
     )
 }
