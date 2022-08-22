@@ -1,7 +1,5 @@
 import { HeaderCtx } from "@/App";
 import React, { useContext, useEffect } from "react";
-// @ts-ignore
-import Icon from "@/assets/404.png";
 
 
 export default function NotFound() {
@@ -10,7 +8,7 @@ export default function NotFound() {
     
     return (
         <div>
-            <img src={Icon} alt="404" />
+            <h1 style={{fontSize: 56}}>:-(</h1>
             <h2>Page not found</h2>
         </div>
     )
