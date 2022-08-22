@@ -1,7 +1,11 @@
 import React from "react"
+import "./Loader.css"
 
 export default function Loader() {
     return (
-        <h3>Loading...</h3>
+        <div className="spinner">
+            <div></div>
+            <div></div>
+        </div>
     )
 }
