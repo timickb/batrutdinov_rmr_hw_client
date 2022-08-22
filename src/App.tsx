@@ -1,15 +1,19 @@
 import React, { createContext, Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
+
 import Login from "@/pages/Login/Login";
 import Home from "@/pages/Home/Home";
-import "@/normalize.css";
-import Kitty from "./pages/Kitty/Kitty";
-import { getProfile, ProfileResponse } from "./infrastructure/http";
-import Logout from "./pages/Logout/Logout";
-import { Profile } from "./models/Profile";
+import Kitty from "@/pages/Kitty/Kitty";
+import Logout from "@/pages/Logout/Logout";
+import NotFound from "@/pages/NotFound/NotFound";
 
+import { getProfile } from "@/infrastructure/http";
+import { Profile } from "@/models/Profile";
+
+import "@/normalize.css";
 interface IHeaderContext {
     header: string
     setHeader: Dispatch<SetStateAction<string>>
@@ -49,7 +53,7 @@ export default function App() {
                         <Route path="/login" element={isAuth ? <Kitty /> : <Login />}/>
                         <Route path="/kitty" element={<Kitty />} />
                         <Route path="/logout" element={<Logout />} />
-                        <Route path="*" element={<h2>Page not found</h2>}/>
+                        <Route path="*" element={<NotFound />}/>
                     </Routes>
                 </div>
                 <Footer />

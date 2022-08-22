@@ -10,18 +10,26 @@
     --disabled-color: rgb(120, 120, 120);
 }
 
+html,
 body {
     margin: 0;
-    height: 100vh;
+    height: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
 }
 
+#root {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 #container {
     margin: 8px;
     display: flex;
+    flex: 1 1 auto;
     justify-content: center;
     align-items: center;
-    height: 75vh;
 }

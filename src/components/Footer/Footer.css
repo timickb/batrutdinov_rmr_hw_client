@@ -1,9 +1,17 @@
 .footer {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     padding: 12px;
+    padding-right: 64px;
     display: flex;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    color: white;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 10pt;
+}
+
+.footer-menu-item {
+    color: var(--primary-color);
+}
+
+.footer-menu-item:hover {
+    color: yellow;
 }
