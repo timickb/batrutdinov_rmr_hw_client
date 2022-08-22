@@ -14,6 +14,7 @@ import { getProfile } from "@/infrastructure/http";
 import { Profile } from "@/models/Profile";
 
 import "@/normalize.css";
+import Loader from "./components/Loader/Loader";
 interface IHeaderContext {
     header: string
     setHeader: Dispatch<SetStateAction<string>>
@@ -53,6 +54,7 @@ export default function App() {
                         <Route path="/login" element={isAuth ? <Kitty /> : <Login />}/>
                         <Route path="/kitty" element={<Kitty />} />
                         <Route path="/logout" element={<Logout />} />
+                        <Route path="/spinner" element={<Loader />} />
                         <Route path="*" element={<NotFound />}/>
                     </Routes>
                 </div>
