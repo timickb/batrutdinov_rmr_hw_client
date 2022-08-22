@@ -24,7 +24,7 @@ export default function Login() {
     const { setHeader } = useContext(HeaderCtx);
     const authStore = useContext(AuthCtx);
 
-    useEffect(() => setHeader('Authorization'), []);
+    useEffect(() => setHeader('Signing in'), []);
 
     const [data, setData] = useState({} as FormData)
     const [error, setError] = useState({} as FormDataError)
