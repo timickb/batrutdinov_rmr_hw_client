@@ -14,5 +14,5 @@
 }
 
 .footer-menu-item:hover {
-    color: deepskyblue;
+    color: var(--hover-color);
 }
