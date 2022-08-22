@@ -2,9 +2,12 @@
 
 * {
     font-family: 'Roboto', sans-serif;
-    --primary-color: rgb(52, 134, 193);
-    --hover-color: rgb(72, 154, 203);
-    --active-color: rgb(82, 164, 213);
+    /* --primary-color: rgb(52, 134, 193); */
+    --primary-color: rgb(31, 12, 100);
+    /* --hover-color: rgb(72, 154, 203); */
+    --hover-color: rgb(51, 32, 120);
+    /* --active-color: rgb(82, 164, 213); */
+    --active-color: rgb(61, 42, 130);
     --secondary-color: rgb(245, 245, 245);
     --error-color: rgb(184, 40, 40);
     --disabled-color: rgb(120, 120, 120);
