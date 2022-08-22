@@ -3,10 +3,9 @@ import { getProfile, login } from "@/infrastructure/http";
 import { Button } from "@/uikit/Button/Button";
 import { TextField } from "@/uikit/TextField/TextField";
 import { validate } from "@/utils/validation";
-import { StatusResponse } from "@/infrastructure/http";
+import { ErrorResponse } from "@/models/ErrorResponse";
 import React, { BaseSyntheticEvent, useContext, useEffect, useState } from "react";
 import "./Login.css";
-import { ErrorResponse } from "@/models/ErrorResponse";
 
 type FormData = {
     email: string,
@@ -31,11 +30,11 @@ export default function Login() {
     const [error, setError] = useState({} as FormDataError)
     const [globalError, setGlobalError] = useState('')
 
-    const handleChange = (event : BaseSyntheticEvent) => {
+    const handleChange = (event: BaseSyntheticEvent) => {
         const key = event.target.name as string;
         const value = event.target.value as string;
-        setData({...data, [key]: value});
-        setError({...error, [key]: value && !validate(key, value)});
+        setData({ ...data, [key]: value });
+        setError({ ...error, [key]: value && !validate(key, value) });
     }
 
     const handleLogin = async () => {
@@ -66,28 +65,28 @@ export default function Login() {
                 <TextField
                     name="email"
                     value={data.email}
-                    type="email" 
+                    type="email"
                     placeholder="Email *"
                     error={error.email}
                     onChange={handleChange}
                 />
                 <div className="error_text">
                     {error.email ? 'Invalid email' : null}
-                    </div>
+                </div>
             </div>
 
             <div className="form_row">
                 <TextField
                     name="phone"
                     value={data.phone}
-                    type="tel" 
+                    type="tel"
                     placeholder="Phone number *"
-                    error={error.phone} 
+                    error={error.phone}
                     onChange={handleChange}
                 />
                 <div className="error_text">
                     {error.phone ? 'Invalid phone' : null}
-                    </div>
+                </div>
             </div>
 
             <div className="form_row">

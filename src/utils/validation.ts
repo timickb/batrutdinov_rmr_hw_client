@@ -2,6 +2,10 @@ const RUSSIAN_PHONE_PREFIX = "+7";
 const RUSSIAN_INTERNAL_PREFIX = "8";
 const MONGOLIAN_PHONE_PREFIX = "+976";
 
+const LETTERS = "abcdefghijklmnopqrstuvwxyz";
+const LETTERS_UPPER = LETTERS.toUpperCase();
+const NUMBERS = "0123456789";
+
 export function validate(type: string, value: string | null | undefined) : boolean {
     switch (type) {
         case 'email':
@@ -34,18 +38,14 @@ export function validateEmail(email: string | null | undefined) : boolean {
 export function validatePassword(password: string | null | undefined) : boolean {
     if (password == undefined) return false;
 
-    const letters = "abcdefghijklmnopqrstuvwxyz";
-    const lettersUpper = letters.toUpperCase();
-    const numbers = "0123456789";
-
     for (var i = 0; i < password.length; i++) {
         if (password.length < 4) return false;
 
         for (var i = 0; i < password.length; i++) {
             var symbol = password.charAt(i);
-            var isLetter = letters.includes(symbol);
-            var isLetterUpper = lettersUpper.includes(symbol);
-            var isNumber = numbers.includes(symbol);
+            var isLetter = LETTERS.includes(symbol);
+            var isLetterUpper = LETTERS_UPPER.includes(symbol);
+            var isNumber = NUMBERS.includes(symbol);
             if (!isLetter && !isNumber && !isLetterUpper) {
                 return false;
             }
@@ -59,21 +59,14 @@ export function validatePhone(phone: string | null | undefined) : boolean {
     if (phone == undefined) return false;
 
     if (phone.startsWith("+") && phone.length < 12) return false;
+    
     if (phone.length < 11) return false;
 
-    if (phone.startsWith(RUSSIAN_PHONE_PREFIX)) {
-        // some logic
-        return true;
-    }
+    if (phone.startsWith(RUSSIAN_PHONE_PREFIX)) return true;
 
-    if (phone.startsWith(RUSSIAN_INTERNAL_PREFIX)) {
-        return true;
-    }
+    if (phone.startsWith(RUSSIAN_INTERNAL_PREFIX)) return true;
 
-    if (phone.startsWith(MONGOLIAN_PHONE_PREFIX)) {
-        // some logic
-        return true;
-    }
+    if (phone.startsWith(MONGOLIAN_PHONE_PREFIX)) return true;
 
     return false;
 }

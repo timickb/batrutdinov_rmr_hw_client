@@ -10,8 +10,9 @@
 
 .footer-menu-item {
     color: var(--primary-color);
+    text-decoration: none;
 }
 
 .footer-menu-item:hover {
-    color: yellow;
+    color: deepskyblue;
 }

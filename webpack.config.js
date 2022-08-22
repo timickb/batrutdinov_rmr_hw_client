@@ -42,7 +42,7 @@ module.exports = {
         rules: [
             { test: /\.tsx?$/, exclude: /node_modules/, use: 'ts-loader'},
             { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-            { test: /\.(png|jp(e*)g|gif|svg)$/, use: ['file-loader'] },
+            { test: /\.(png|jpg|gif|svg)$/, type: 'asset/resource', use: 'file-loader' },
         ]
     }
 }
