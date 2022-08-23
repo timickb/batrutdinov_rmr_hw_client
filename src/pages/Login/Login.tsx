@@ -5,7 +5,10 @@ import { TextField } from "@/uikit/TextField/TextField";
 import { validate } from "@/utils/validation";
 import { ErrorResponse } from "@/models/ErrorResponse";
 import React, { BaseSyntheticEvent, useContext, useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import "./Login.css";
+import Loader from "@/components/Loader/Loader";
 
 type FormData = {
     email: string,
@@ -26,9 +29,10 @@ export default function Login() {
 
     useEffect(() => setHeader('Signing in'), []);
 
-    const [data, setData] = useState({} as FormData)
-    const [error, setError] = useState({} as FormDataError)
-    const [globalError, setGlobalError] = useState('')
+    const [data, setData] = useState({} as FormData);
+    const [error, setError] = useState({} as FormDataError);
+    const [globalError, setGlobalError] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (event: BaseSyntheticEvent) => {
         const key = event.target.name as string;
@@ -38,24 +42,28 @@ export default function Login() {
     }
 
     const handleLogin = async () => {
-        if (!data.email || !data.password || !data.phone) {
-            setGlobalError('There are empty fields');
-            return;
-        }
-        const res = await login(data);
-        console.log(res);
+        try {
+            setLoading(true);
+            if (!data.email || !data.password || !data.phone) {
+                setGlobalError('There are empty fields');
+                return;
+            }
+            const res = await login(data);
 
-        if ('status' in res) {
-            getProfile().then(response => {
-                if ('data' in response) {
-                    authStore.setAuth(true);
-                    authStore.setProfile(response.data);
-                }
-            }).catch(err => console.log(err));
-            return;
-        }
+            if ('status' in res) {
+                getProfile().then(response => {
+                    if ('data' in response) {
+                        authStore.setAuth(true);
+                        authStore.setProfile(response.data);
+                    }
+                }).catch(err => console.log(err));
+                return;
+            }
 
-        setGlobalError((res as ErrorResponse).message);
+            setGlobalError((res as ErrorResponse).message);
+        } finally {
+            setLoading(false);
+        }
     }
 
     return (
@@ -104,10 +112,10 @@ export default function Login() {
             </div>
 
             <div className="form_row">
-                <Button
-                    onClick={handleLogin}
+                <Button onClick={handleLogin}
                     disabled={error.email || error.password || error.phone}>
-                    Auth
+                    {loading ? <><Loader type="small" /></> 
+                        : <><FontAwesomeIcon icon={faArrowRightToBracket} /><div style={{margin: 4}} />Enter</>}
                 </Button>
                 <div className="error_text">
                     {globalError}
