@@ -48,7 +48,7 @@ export default function Kitty() {
 
     return (
         <div style={{borderRadius: 24, overflow: 'hidden'}}>
-            {loading ? <Loader /> : (
+            {loading ? <Loader type="big" /> : (
                 success 
                 ? <img 
                     src={path} 

@@ -54,7 +54,7 @@ export default function App() {
                         <Route path="/login" element={isAuth ? <Kitty /> : <Login />}/>
                         <Route path="/kitty" element={<Kitty />} />
                         <Route path="/logout" element={<Logout />} />
-                        <Route path="/spinner" element={<Loader />} />
+                        <Route path="/spinner" element={<Loader type="big" />} />
                         <Route path="*" element={<NotFound />}/>
                     </Routes>
                 </div>

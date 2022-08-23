@@ -53,23 +53,26 @@ export default function Header() {
                 <div style={{marginRight: 5}} />
 
                 {isAuth ? <>
-                <Link to="/kitty">
+                <Link to="/kitty" style={{textDecoration: 'none'}}>
                     <Button width={dimension.width > critW ? fullBtnW : smallBtnW} padding={4}>
                         <FontAwesomeIcon icon={faCat} />
-                        {dimension.width > critW ? " Kitty" : ""}
+                        {dimension.width > critW ? <div style={{padding: 4}} /> : null}
+                        {dimension.width > critW ? "Kitty" : ""}
                     </Button>
                 </Link>
-                <Link to="/logout">
+                <Link to="/logout" style={{textDecoration: 'none'}}>
                     <Button width={dimension.width > critW ? fullBtnW : smallBtnW} padding={4}>
                         <FontAwesomeIcon icon={faArrowRightFromBracket} />
-                        {dimension.width > critW ? " Log out" : ""}
+                        {dimension.width > critW ? <div style={{padding: 4}} /> : null}
+                        {dimension.width > critW ? "Log out" : ""}
                     </Button>
                 </Link>
                 </> :
-                <Link to="/login">
+                <Link to="/login" style={{textDecoration: 'none'}}>
                     <Button width={dimension.width > critW ? fullBtnW : smallBtnW} padding={4}>
                         <FontAwesomeIcon icon={faArrowRightToBracket} />
-                        {dimension.width > critW ? " Log in" : ""}
+                        {dimension.width > critW ? <div style={{padding: 4}} /> : null}
+                        {dimension.width > critW ? "Log in" : ""}
                     </Button>
                 </Link>
                 } 
