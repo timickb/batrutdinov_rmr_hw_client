@@ -21,26 +21,20 @@ export default function Header() {
         width: window.innerWidth,
         height: window.innerHeight
     });
-    const [buttonWidth, setButtonWidth] = useState(fullBtnW);
 
     const handleChangeDimension = () => {
         setDimension({
             width: window.innerWidth,
             height: window.innerHeight
         });
-
-        if (dimension.width <= 450) setButtonWidth(smallBtnW);
-        else setButtonWidth(fullBtnW);
     }
 
     useEffect(() => {
-        handleChangeDimension();
-
         window.addEventListener('resize', handleChangeDimension);
         return () => {
             window.removeEventListener('resize', handleChangeDimension);
         }
-    }, [dimension]);
+    }, []);
 
     return (
         <div className="header">
@@ -60,20 +54,20 @@ export default function Header() {
 
                 {isAuth ? <>
                 <Link to="/kitty">
-                    <Button width={buttonWidth} padding={4}>
+                    <Button width={dimension.width > critW ? fullBtnW : smallBtnW} padding={4}>
                         <FontAwesomeIcon icon={faCat} />
                         {dimension.width > critW ? " Kitty" : ""}
                     </Button>
                 </Link>
                 <Link to="/logout">
-                    <Button width={buttonWidth} padding={4}>
+                    <Button width={dimension.width > critW ? fullBtnW : smallBtnW} padding={4}>
                         <FontAwesomeIcon icon={faArrowRightFromBracket} />
                         {dimension.width > critW ? " Log out" : ""}
                     </Button>
                 </Link>
                 </> :
                 <Link to="/login">
-                    <Button width={buttonWidth} padding={4}>
+                    <Button width={dimension.width > critW ? fullBtnW : smallBtnW} padding={4}>
                         <FontAwesomeIcon icon={faArrowRightToBracket} />
                         {dimension.width > critW ? " Log in" : ""}
                     </Button>
