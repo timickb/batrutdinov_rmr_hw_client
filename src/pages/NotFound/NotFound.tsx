@@ -1,6 +1,8 @@
 import { HeaderCtx } from "@/App";
 import React, { useContext, useEffect } from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileCircleXmark } from "@fortawesome/free-solid-svg-icons";
+import "./NotFound.css";
 
 export default function NotFound() {
     const { setHeader } = useContext(HeaderCtx);
@@ -8,7 +10,9 @@ export default function NotFound() {
     
     return (
         <div>
-            <h1 style={{fontSize: 56}}>:-(</h1>
+            <h1 className="icon">
+                <FontAwesomeIcon icon={faFileCircleXmark}/>
+            </h1>
             <h2>Page not found</h2>
         </div>
     )
