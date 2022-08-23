@@ -1,11 +1,23 @@
 .footer {
     background-color: var(--secondary-color);
     padding: 12px;
-    padding-right: 64px;
+    padding-right: 16px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-size: 10pt;
+}
+
+.footer-left {
+    width: 20%;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 400px;
 }
 
 .footer-menu-item {
@@ -15,4 +27,14 @@
 
 .footer-menu-item:hover {
     color: var(--hover-color);
+}
+
+@media screen and (max-width: 450px) {
+    .footer-left {
+        width: 96px;
+    }
+    .footer-right {
+        flex-direction: column;
+        width: 64px;
+    }
 }
