@@ -1,26 +1,26 @@
 .auth_block {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 32px;
-    padding-bottom: 12px;
-    border-radius: 24px;
-    background: var(--secondary-color);
-    width: fit-content;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 32px;
+  padding-bottom: 12px;
+  border-radius: 24px;
+  background: var(--secondary-color);
+  width: fit-content;
 }
 
 .form_row {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .error_text {
-    color: var(--error-color);
-    font-size: 9pt;
-    min-height: 14px;
-    max-height: 32px;
-    max-width: 240px;
-    padding-left: 12px;
-    margin-top: -4px;
-    margin-bottom: 4px;
+  color: var(--error-color);
+  font-size: 9pt;
+  min-height: 14px;
+  max-height: 32px;
+  max-width: 240px;
+  padding-left: 12px;
+  margin-top: -4px;
+  margin-bottom: 4px;
 }

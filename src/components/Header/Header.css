@@ -1,29 +1,29 @@
 .header {
-    background-color: var(--secondary-color);
-    padding: 4px;
-    padding-left: 12px;
-    font-size: 12pt;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background-color: var(--secondary-color);
+  padding: 4px;
+  padding-left: 12px;
+  font-size: 12pt;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .state_row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .title {
-    font-size: 16pt;
+  font-size: 16pt;
 }
 
 .logo {
-    background-color: var(--primary-color);
-    width: 24px;
-    height: 24px;
-    border-radius: 30px;
+  background-color: var(--primary-color);
+  width: 24px;
+  height: 24px;
+  border-radius: 30px;
 }
 
 .logo:hover {
-    background-color: var(--hover-color);
+  background-color: var(--hover-color);
 }

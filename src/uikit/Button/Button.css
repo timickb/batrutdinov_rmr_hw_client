@@ -1,29 +1,29 @@
 .button {
-    border: 2px solid var(--primary-color);
-    border-radius: 16px;
-    padding: 16px;
-    margin: 5px;
-    background-color: var(--primary-color);
-    color: white;
-    font-size: 12pt;
-    font-family: 'Roboto';
-    display: flex;
-    justify-content: center;
-    width: 284px;
-    text-decoration: none;
+  border: 2px solid var(--primary-color);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 5px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 12pt;
+  font-family: 'Roboto';
+  display: flex;
+  justify-content: center;
+  width: 284px;
+  text-decoration: none;
 }
 
 .button:hover {
-    border-color: var(--hover-color);
-    background-color: var(--hover-color);
+  border-color: var(--hover-color);
+  background-color: var(--hover-color);
 }
 
 .button:active {
-    border-color: var(--active-color);
-    background-color: var(--active-color);
+  border-color: var(--active-color);
+  background-color: var(--active-color);
 }
 
 .button:disabled {
-    border-color: var(--disabled-color);
-    background-color: var(--disabled-color);
+  border-color: var(--disabled-color);
+  background-color: var(--disabled-color);
 }

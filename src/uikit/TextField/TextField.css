@@ -1,13 +1,13 @@
 .text_field {
-    border-radius: 16px;
-    border: 2px solid white;
-    padding: 16px;
-    margin: 5px;
-    width: 248px;
-    font-size: 12pt;
-    font-family: 'Roboto';
+  border-radius: 16px;
+  border: 2px solid white;
+  padding: 16px;
+  margin: 5px;
+  width: 248px;
+  font-size: 12pt;
+  font-family: 'Roboto';
 }
 
 .input_error {
-    border: 2px solid var(--error-color);
+  border: 2px solid var(--error-color);
 }
