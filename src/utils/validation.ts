@@ -38,14 +38,14 @@ export function validateEmail(email: string | null | undefined): boolean {
 export function validatePassword(password: string | null | undefined): boolean {
   if (password == undefined) return false;
 
-  for (var i = 0; i < password.length; i++) {
+  for (let i = 0; i < password.length; i++) {
     if (password.length < 4) return false;
 
-    for (var i = 0; i < password.length; i++) {
-      var symbol = password.charAt(i);
-      var isLetter = LETTERS.includes(symbol);
-      var isLetterUpper = LETTERS_UPPER.includes(symbol);
-      var isNumber = NUMBERS.includes(symbol);
+    for (let i = 0; i < password.length; i++) {
+      const symbol = password.charAt(i);
+      const isLetter = LETTERS.includes(symbol);
+      const isLetterUpper = LETTERS_UPPER.includes(symbol);
+      const isNumber = NUMBERS.includes(symbol);
       if (!isLetter && !isNumber && !isLetterUpper) {
         return false;
       }

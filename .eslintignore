@@ -1,0 +1,8 @@
+node_modules
+dist
+src/assets
+.husky
+.vscode
+etc
+README.md
+webpack.config.js
